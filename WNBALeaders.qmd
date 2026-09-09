@@ -1,0 +1,68 @@
+---
+title: "WNBA Leaders"
+format: html
+execute:
+  echo: false
+---
+
+```{r}
+#| label: setup
+#| message: false
+
+library(tidyverse)
+
+leaders <- read_csv("data/wnba_leaders_2025.csv")
+top_players <- read_csv("data/wnba_top_players_2025.csv")
+```
+
+```{r}
+#| label: player-comparison-plot
+#| fig-width: 14
+#| fig-height: 11
+
+player_order <- top_players |> 
+  arrange(Points) |> 
+  pull(player)
+
+stats_long <- top_players |>
+  mutate(
+    `Field Goal %` = `Field Goal Pct` * 100,
+    player = factor(player, levels = player_order)
+  ) |>
+  select(-`Field Goal Pct`) |>
+  pivot_longer(
+    cols = c(Points, Rebounds, Assists, Steals, Blocks, `Field Goal %`, Minutes),
+    names_to = "metric",
+    values_to = "value"
+  ) |>
+  mutate(
+    metric = factor(metric, levels = c(
+      "Points", "Rebounds", "Assists", 
+      "Steals", "Blocks", "Field Goal %", "Minutes"
+    ))
+  )
+
+stats_long |> 
+  ggplot(aes(x = value, y = player, fill = player)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ metric, scales = "free_x", ncol = 3) +
+  labs(
+    title = "2025 WNBA Season Comparison: Top 12 Scorers",
+    subtitle = "Per game averages and shooting percentage across key statistical categories",
+    x = NULL,
+    y = NULL,
+    caption = "Source: Basketball Reference (2025 Season)"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    strip.text = element_text(face = "bold", size = 12),
+    plot.title = element_text(face = "bold", size = 16),
+    plot.subtitle = element_text(size = 12, color = "grey30"),
+    axis.text.y = element_text(size = 11),
+    axis.text.x = element_text(size = 10),
+    panel.grid.minor = element_blank(),
+    panel.spacing = unit(1.2, "lines")
+  )
+```
+
+
