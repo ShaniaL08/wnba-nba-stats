@@ -13,59 +13,38 @@ execute:
 
 library(tidyverse)
 
-leaders <- read_csv("data/wnba_leaders_2025.csv")
-top_players <- read_csv("data/wnba_top_players_2025.csv")
+games <- read_csv("data/wnba_player_games.csv")
 ```
 
 ```{r}
-#| label: player-comparison-plot
-#| fig-width: 16
-#| fig-height: 18
-#| out-width: "100%"
-#| fig-dpi: 300
+#| label: points-vs-rebounds-plot
+#| fig-width: 12
+#| fig-height: 6
 
-player_order <- top_players |> 
-  arrange(Points) |> 
-  pull(player)
-
-stats_long <- top_players |>
-  mutate(
-    `Field Goal %` = `Field Goal Pct` * 100,
-    player = factor(player, levels = player_order)
-  ) |>
-  select(-`Field Goal Pct`) |>
-  pivot_longer(
-    cols = c(Points, Rebounds, Assists, Steals, Blocks, `Field Goal %`, Minutes),
-    names_to = "metric",
-    values_to = "value"
-  ) |>
-  mutate(
-    metric = factor(metric, levels = c(
-      "Points", "Rebounds", "Assists", 
-      "Steals", "Blocks", "Field Goal %", "Minutes"
-    ))
-  )
-
-stats_long |> 
-  ggplot(aes(x = value, y = player, fill = player)) +
-  geom_col(show.legend = FALSE) +
-  facet_wrap(~ metric, scales = "free_x", ncol = 2) +
+games |>
+  mutate(position_name = case_when(
+    position == "G" ~ "Guards",
+    position == "F" ~ "Forwards",
+    position == "C" ~ "Centers"
+  )) |>
+  ggplot(aes(x = rebounds, y = points, color = position_name)) +
+  # Jitter slightly to separate overlapping whole numbers
+  geom_jitter(alpha = 0.2, size = 1.2, width = 0.3, height = 0.3, show.legend = FALSE) +
+  # Linear trend line showing the relationship within each position
+  geom_smooth(method = "lm", formula = y ~ x, color = "black", se = FALSE, linetype = "dashed") +
+  facet_wrap(~ position_name) +
+  scale_color_brewer(palette = "Dark2") +
   labs(
-    title = "2025 WNBA Season Comparison: Top 12 Scorers",
-    subtitle = "Per game averages and shooting percentage across key statistical categories",
-    x = NULL,
-    y = NULL,
-    caption = "Source: Basketball Reference (2025 Season)"
+    title = "Points vs. Rebounds in WNBA Games by Position (2023–2024)",
+    subtitle = "Each dot represents one player in a single game (9,902 games total). Dashed line shows the trend.",
+    x = "Rebounds Grabbed in Game",
+    y = "Points Scored in Game",
+    caption = "Source: SportsDataverse (wehoop)"
   ) +
-  theme_minimal(base_size = 15) +
+  theme_minimal(base_size = 14) +
   theme(
-    strip.text = element_text(face = "bold", size = 14),
-    plot.title = element_text(face = "bold", size = 18),
-    plot.subtitle = element_text(size = 14, color = "grey30"),
-    axis.text.y = element_text(size = 13),
-    axis.text.x = element_text(size = 12),
-    panel.grid.minor = element_blank(),
-    panel.spacing = unit(1.5, "lines")
+    strip.text = element_text(face = "bold", size = 13),
+    panel.spacing = unit(1.2, "lines")
   )
 ```
 
