@@ -409,5 +409,9 @@ This project explores the relationship between playing time (minutes) and statis
 - **Key Categories:** Points, Rebounds, Assists, Steals, Blocks, and Personal Fouls.
 - **Sample:** Both leagues display 2,000 sampled individual game performances with linear regression trendlines calculated across all 12,013 games.
 
+### About
+
+
+
 :::
 

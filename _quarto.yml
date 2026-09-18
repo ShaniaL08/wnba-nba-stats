@@ -1,0 +1,18 @@
+project:
+  type: website
+  resources:
+    - data/
+
+website:
+  title: "WNBA & NBA Leaders"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: story.qmd
+        text: Story
+
+format:
+  html:
+    theme: flatly
+    toc: false
