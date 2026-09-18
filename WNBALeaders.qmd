@@ -1,5 +1,5 @@
 ---
-title: "WNBA Leaders"
+title: "WNBA & NBA Leaders"
 format:
   html:
     page-layout: full
@@ -10,42 +10,169 @@ execute:
 ```{r}
 #| label: setup
 #| message: false
+#| warning: false
 
 library(tidyverse)
+library(plotly)
 
-games <- read_csv("data/wnba_player_games.csv")
+# WNBA individual game box scores (2025-2026 seasons)
+games <- read_csv("data/wnba_player_games.csv", show_col_types = FALSE)
+
+# NBA individual game box scores from ESPN (2025-2026 regular season)
+nba_games <- read_csv("data/nba_player_games.csv", show_col_types = FALSE)
+
+# Sample thousands of individual game performances for fast, responsive interactive plots
+set.seed(42)
+wnba_sample <- games |> slice_sample(n = 2000)
+nba_sample <- nba_games |> slice_sample(n = 2000)
+
+# Helper function to generate clean, responsive interactive scatter plots
+make_scatter_plotly <- function(sample_data, full_data, metric_col, metric_label, league_label, color_code, count_label) {
+  p <- sample_data |>
+    mutate(
+      hover_text = paste0(
+        "<b>", player, "</b> (", team, ")<br>",
+        "Date: ", game_date, "<br>",
+        "Minutes: ", round(minutes, 1), "<br>",
+        metric_label, ": ", .data[[metric_col]]
+      )
+    ) |>
+    ggplot(aes(x = minutes, y = .data[[metric_col]])) +
+    geom_point(aes(text = hover_text), alpha = 0.35, size = 1.1, color = color_code) +
+    geom_smooth(data = full_data, method = "lm", formula = y ~ x, color = "black", linetype = "dashed", se = FALSE) +
+    labs(
+      title = paste0(league_label, ": ", metric_label, " vs. Minutes<br><sup>", count_label, "</sup>"),
+      x = "Minutes Played",
+      y = metric_label
+    ) +
+    theme_minimal(base_size = 11)
+  
+  ggplotly(p, tooltip = "text", height = 400)
+}
+```
+
+## Exploring Playing Time and Performance in the WNBA & NBA
+
+How does playing time impact individual player output on the court across both leagues? We examine the relationships between minutes played and key statistical categories. 
+
+Each plot contains thousands of individual player-game performances from the 2025–2026 seasons (with the dashed trend line fitted across all games). **Hover** over any point to inspect the player, date, minutes, and stat line, or **click and drag** to zoom into any cluster!
+
+### Points vs. Minutes
+
+Scoring opportunity scales strongly with court time in both leagues.
+
+::: {layout-ncol=2}
+```{r}
+#| label: points-vs-minutes-wnba
+#| warning: false
+
+make_scatter_plotly(wnba_sample, games, "points", "Points Scored", "WNBA", "#e66101", "2,000 sampled game performances (2025–2026)")
 ```
 
 ```{r}
-#| label: points-vs-rebounds-plot
-#| fig-width: 12
-#| fig-height: 6
+#| label: points-vs-minutes-nba
+#| warning: false
 
-games |>
-  mutate(position_name = case_when(
-    position == "G" ~ "Guards",
-    position == "F" ~ "Forwards",
-    position == "C" ~ "Centers"
-  )) |>
-  ggplot(aes(x = rebounds, y = points, color = position_name)) +
-  # Jitter slightly to separate overlapping whole numbers
-  geom_jitter(alpha = 0.2, size = 1.2, width = 0.3, height = 0.3, show.legend = FALSE) +
-  # Linear trend line showing the relationship within each position
-  geom_smooth(method = "lm", formula = y ~ x, color = "black", se = FALSE, linetype = "dashed") +
-  facet_wrap(~ position_name) +
-  scale_color_brewer(palette = "Dark2") +
-  labs(
-    title = "Points vs. Rebounds in WNBA Games by Position (2023–2024)",
-    subtitle = "Each dot represents one player in a single game (9,902 games total). Dashed line shows the trend.",
-    x = "Rebounds Grabbed in Game",
-    y = "Points Scored in Game",
-    caption = "Source: SportsDataverse (wehoop)"
-  ) +
-  theme_minimal(base_size = 14) +
-  theme(
-    strip.text = element_text(face = "bold", size = 13),
-    panel.spacing = unit(1.2, "lines")
-  )
+make_scatter_plotly(nba_sample, nba_games, "points", "Points Scored", "NBA", "#e66101", "2,000 sampled game performances (2025–2026)")
+```
+:::
+
+### Rebounds vs. Minutes
+
+Rebounding shows a steady positive slope with increased playing time in both leagues.
+
+::: {layout-ncol=2}
+```{r}
+#| label: rebounds-vs-minutes-wnba
+#| warning: false
+
+make_scatter_plotly(wnba_sample, games, "rebounds", "Rebounds Grabbed", "WNBA", "#2ca25f", "2,000 sampled game performances (2025–2026)")
 ```
 
+```{r}
+#| label: rebounds-vs-minutes-nba
+#| warning: false
 
+make_scatter_plotly(nba_sample, nba_games, "rebounds", "Rebounds Grabbed", "NBA", "#2ca25f", "2,000 sampled game performances (2025–2026)")
+```
+:::
+
+### Assists vs. Minutes
+
+Playmaking is heavily correlated with court time across both leagues, especially for starting guards.
+
+::: {layout-ncol=2}
+```{r}
+#| label: assists-vs-minutes-wnba
+#| warning: false
+
+make_scatter_plotly(wnba_sample, games, "assists", "Assists", "WNBA", "#2b83ba", "2,000 sampled game performances (2025–2026)")
+```
+
+```{r}
+#| label: assists-vs-minutes-nba
+#| warning: false
+
+make_scatter_plotly(nba_sample, nba_games, "assists", "Assists", "NBA", "#2b83ba", "2,000 sampled game performances (2025–2026)")
+```
+:::
+
+### Steals vs. Minutes
+
+Steals occur less frequently per game than points or rebounds, but extended minutes heighten takeaways in both leagues.
+
+::: {layout-ncol=2}
+```{r}
+#| label: steals-vs-minutes-wnba
+#| warning: false
+
+make_scatter_plotly(wnba_sample, games, "steals", "Steals", "WNBA", "#7b3294", "2,000 sampled game performances (2025–2026)")
+```
+
+```{r}
+#| label: steals-vs-minutes-nba
+#| warning: false
+
+make_scatter_plotly(nba_sample, nba_games, "steals", "Steals", "NBA", "#7b3294", "2,000 sampled game performances (2025–2026)")
+```
+:::
+
+### Blocks vs. Minutes
+
+Shot blocking shows a gradual positive slope with minutes, driven primarily by rim protectors.
+
+::: {layout-ncol=2}
+```{r}
+#| label: blocks-vs-minutes-wnba
+#| warning: false
+
+make_scatter_plotly(wnba_sample, games, "blocks", "Blocks", "WNBA", "#ca0020", "2,000 sampled game performances (2025–2026)")
+```
+
+```{r}
+#| label: blocks-vs-minutes-nba
+#| warning: false
+
+make_scatter_plotly(nba_sample, nba_games, "blocks", "Blocks", "NBA", "#ca0020", "2,000 sampled game performances (2025–2026)")
+```
+:::
+
+### Personal Fouls vs. Minutes
+
+Defending for longer stretches raises the likelihood of personal fouls in both leagues.
+
+::: {layout-ncol=2}
+```{r}
+#| label: fouls-vs-minutes-wnba
+#| warning: false
+
+make_scatter_plotly(wnba_sample, games, "fouls", "Personal Fouls", "WNBA", "#5e3c99", "2,000 sampled game performances (2025–2026)")
+```
+
+```{r}
+#| label: fouls-vs-minutes-nba
+#| warning: false
+
+make_scatter_plotly(nba_sample, nba_games, "fouls", "Personal Fouls", "NBA", "#5e3c99", "2,000 sampled game performances (2025–2026)")
+```
+:::
