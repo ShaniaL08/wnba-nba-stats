@@ -8,7 +8,15 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
+        text: Exploration
+      - href: graphs.qmd
+        text: Graphs
+      - href: project-overview.qmd
+        text: Project Overview
+      - href: story.qmd
+        text: Story
+      - href: about.qmd
+        text: About
 
 format:
   html:

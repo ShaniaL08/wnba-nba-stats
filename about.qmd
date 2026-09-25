@@ -1,0 +1,24 @@
+---
+title: "About"
+format:
+  html:
+    theme: flatly
+    page-layout: full
+    toc: false
+---
+
+### Information
+
+- **Name:** Shania Leubin
+- **Contact:** s.leubin30@ncf.edu
+- **Github Account:** ShaniaL08
+- **Project Repo URL:** <https://github.com/ShaniaL08/wnba-nba-stats>
+- **NCF Link:** <https://ncf.edu>
+
+### About the Data
+
+The datasets comprise **12,013 individual player-game box scores** from the 2025–2026 regular seasons:
+- **WNBA Data:** Sourced via SportsDataverse (`wehoop`).
+- **NBA Data:** Sourced from ESPN via SportsDataverse (`hoopR`).
+
+To ensure a balanced comparison across both leagues, each league's sample contains 12,013 observations, with 2,000 performances plotted in each interactive visualization. The dashed trendlines represent linear regressions fitted across all 12,013 games.

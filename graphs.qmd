@@ -1,6 +1,5 @@
 ---
-title: "WNBA & NBA Statistical Leaders"
-subtitle: "Analyzing Playing Time and Box Score Production Across Professional Basketball (2025–2026)"
+title: "Graphs"
 format:
   html:
     theme: flatly
@@ -60,31 +59,6 @@ make_scatter_plotly <- function(sample_data, full_data, metric_col, metric_label
     config(displaylogo = FALSE, modeBarButtonsToRemove = c("lasso2d", "select2d"))
 }
 ```
-
-::: {.panel-tabset}
-
-## Exploration
-
-::: {.lead style="color: #5a6268; margin-bottom: 20px;"}
-Explore how playing time influences production across both leagues. Use the filter below to switch categories—the **WNBA** chart appears first, with the corresponding **NBA** chart directly underneath.
-:::
-
-```{=html}
-<!-- Footer / Methodology Card -->
-<div class="card bg-light border-0 mt-4 mb-5" style="border-radius: 10px;">
-  <div class="card-body text-muted small p-3">
-    <strong>💡 Interactive Tips & Notes:</strong>
-    <ul class="mb-1 mt-1">
-      <li><strong>Hover</strong> over individual points to inspect the player name, team, date, minutes, and exact statistics.</li>
-      <li><strong>Click and drag</strong> across any plot to zoom into clusters; double-click to reset the axes.</li>
-      <li><strong>Dashed trendline</strong> represents an ordinary least squares (OLS) linear regression model fitted across all 12,013 individual player performances.</li>
-      <li><strong>Data Sources:</strong> SportsDataverse (<code>wehoop</code> for WNBA and <code>hoopR</code> via ESPN for NBA).</li>
-    </ul>
-  </div>
-</div>
-```
-
-## Graphs
 
 ```{=html}
 <!-- Control Panel Card -->
@@ -394,48 +368,5 @@ if (document.readyState === "loading") {
 } else {
   initMetricDropdown();
 }
-
-document.addEventListener("shown.bs.tab", function() {
-  updateMetricPair();
-});
 </script>
 ```
-
-## Project Overview
-
-This project explores the relationship between playing time (minutes) and statistical output across both the **WNBA** and **NBA** for the 2025–2026 seasons.
-
-- **Data Sources:** 
-  - WNBA: SportsDataverse (`wehoop`)
-  - NBA: ESPN (`hoopR`)
-- **Key Categories:** Points, Rebounds, Assists, Steals, Blocks, and Personal Fouls.
-- **Sample:** Both leagues display 2,000 sampled individual game performances with linear regression trendlines calculated across all 12,013 games.
-
-## Story
-
-My name is Shania Leubin. I graduated from Lemon Bay High School and now attend the New College of Florida. My area of concentration is Finance, while also studying pre-law!
-
-### Why I chose this project?!
-
-As a basketball player and fan, I became interested in analyzing Women’s Basketball statistics. After comparing players across multiple seasons and researching reliable data sources, I discovered a positive correlation between minutes played and points, assists, steals, rebounds, and blocks. This inspired me to create a website using graphs and data to highlight player performance, celebrate their legacies, and showcase the growth of Women’s Basketball. I have also compared my data to Men's Basketball to prove that women are just as capable as men.
-
-## About
-
-### Information
-
-- **Name:** Shania Leubin
-- **Contact:** s.leubin30@ncf.edu
-- **Github Account:** ShaniaL08
-- **Project Repo URL:** <https://github.com/ShaniaL08/wnba-nba-stats>
-- **NCF Link:** <https://ncf.edu>
-
-### About the Data
-
-The datasets comprise **12,013 individual player-game box scores** from the 2025–2026 regular seasons:
-- **WNBA Data:** Sourced via SportsDataverse (`wehoop`).
-- **NBA Data:** Sourced from ESPN via SportsDataverse (`hoopR`).
-
-To ensure a balanced comparison across both leagues, each league's sample contains 12,013 observations, with 2,000 performances plotted in each interactive visualization. The dashed trendlines represent linear regressions fitted across all 12,013 games.
-
-:::
-
