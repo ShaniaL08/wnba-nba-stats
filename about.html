@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>🏀 Exploration &amp; Welcome – 🏀 WNBA &amp; NBA Leaders</title>
+<title>ℹ️ About – 🏀 WNBA &amp; NBA Leaders</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="./index.html"> 
 <span class="menu-text">🔍 Exploration</span></a>
   </li>  
   <li class="nav-item">
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">⭐ Story</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link active" href="./about.html" aria-current="page"> 
 <span class="menu-text">ℹ️ About</span></a>
   </li>  
 </ul>
@@ -132,8 +132,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">🏀 Exploration &amp; Welcome</h1>
-<p class="subtitle lead">Analyzing Playing Time and Box Score Production Across Professional Basketball (2025–2026)</p>
+<h1 class="title">ℹ️ About</h1>
+<p class="subtitle lead">Author Information &amp; Data Sources</p>
 </div>
 
 
@@ -150,59 +150,40 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="hero-card mt-3">
-  <div class="d-flex flex-wrap align-items-center justify-content-between">
-    <div style="max-width: 700px;">
-      <h2 class="fw-bold mb-2 anchored" style="color: #2c3e50;">Welcome to WNBA &amp; NBA Statistical Leaders! 🏀</h2>
-      <p class="lead text-muted mb-3" style="font-size: 1.15rem;">
-        Discover how playing time shapes player production across both the 
-        <span class="badge-wnba">WNBA</span> and <span class="badge-nba">NBA</span>. 
-        Explore interactive scatter plots, compare league trends, and see how box score metrics scale with minutes played.
-      </p>
-      <div class="d-flex flex-wrap gap-2">
-        <a href="graphs.html" class="btn btn-primary btn-fun shadow-sm">📊 View Interactive Graphs</a>
-        <a href="story.html" class="btn btn-outline-secondary btn-fun">⭐ Read the Story</a>
-        <a href="project-overview.html" class="btn btn-outline-secondary btn-fun">📋 Project Overview</a>
+<div class="row g-4 mb-4">
+  <div class="col-md-5">
+    <div class="card shadow-sm border-0 h-100" style="border-radius: 12px;">
+      <div class="card-body p-4">
+        <h5 class="fw-bold mb-3 anchored" style="color: #2c3e50;">👤 Author Details</h5>
+        <ul class="list-unstyled mb-0" style="color: #495057; line-height: 2;">
+          <li><strong>Name:</strong> Shania Leubin</li>
+          <li><strong>Contact:</strong> <a href="mailto:s.leubin30@ncf.edu">s.leubin30@ncf.edu</a></li>
+          <li><strong>GitHub:</strong> <a href="https://github.com/ShaniaL08" target="_blank">@ShaniaL08</a></li>
+          <li><strong>Repository:</strong> <a href="https://github.com/ShaniaL08/wnba-nba-stats" target="_blank">wnba-nba-stats</a></li>
+          <li><strong>Institution:</strong> <a href="https://ncf.edu" target="_blank">New College of Florida</a></li>
+        </ul>
       </div>
     </div>
-    <div class="d-none d-lg-block text-center pe-4" style="font-size: 5rem; line-height: 1;">
-      🏀⚡
-    </div>
   </div>
-</div>
 
-<!-- Quick Stat Counters -->
-<div class="row g-3 mb-4">
-  <div class="col-md-4">
-    <div class="stat-box">
-      <div class="stat-number" style="color: #e66101;">12,013</div>
-      <div class="stat-label">Game Performances Sampled</div>
+  <div class="col-md-7">
+    <div class="card shadow-sm border-0 h-100" style="border-radius: 12px;">
+      <div class="card-body p-4">
+        <h5 class="fw-bold mb-3 anchored" style="color: #2c3e50;">📦 About the Data</h5>
+        <p style="color: #495057;">
+          The datasets comprise <strong>12,013 individual player-game box scores</strong> from the 2025–2026 regular seasons:
+        </p>
+        <ul style="color: #495057; line-height: 1.8;">
+          <li><strong>WNBA Data:</strong> Sourced via SportsDataverse (<code>wehoop</code>).</li>
+          <li><strong>NBA Data:</strong> Sourced from ESPN via SportsDataverse (<code>hoopR</code>).</li>
+        </ul>
+        <div class="alert alert-light border mt-3 mb-0" style="border-radius: 8px;">
+          <small class="text-muted">
+            To ensure a balanced comparison across both leagues, each league's sample contains 12,013 observations, with 2,000 performances plotted in each interactive visualization. The dashed trendlines represent linear regressions fitted across all 12,013 games.
+          </small>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="stat-box">
-      <div class="stat-number" style="color: #1d70b8;">6</div>
-      <div class="stat-label">Statistical Categories Analyzed</div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="stat-box">
-      <div class="stat-number" style="color: #2ca25f;">2 Leagues</div>
-      <div class="stat-label">WNBA &amp; NBA Compared Side-by-Side</div>
-    </div>
-  </div>
-</div>
-
-<!-- Interactive Tips & Methodology Card -->
-<div class="card bg-light border-0 mb-4" style="border-radius: 12px;">
-  <div class="card-body text-muted p-4">
-    <h5 class="fw-bold mb-3 anchored" style="color: #2c3e50;">💡 How to Use the Interactive Visualizations</h5>
-    <ul class="mb-0">
-      <li class="mb-2"><strong>Filter Categories:</strong> On the <a href="graphs.html">Graphs</a> tab, use the dropdown menu to toggle between Points, Rebounds, Blocks, Assists, Steals, and Personal Fouls.</li>
-      <li class="mb-2"><strong>Hover for Details:</strong> Hover over any individual data point to view the player name, team, game date, minutes, and exact statistics.</li>
-      <li class="mb-2"><strong>Zoom &amp; Pan:</strong> Click and drag across clusters of points to zoom in; double-click to reset the axes.</li>
-      <li><strong>Trendlines:</strong> Dashed regression lines show the linear relationship fitted across the full dataset of 12,013 games.</li>
-    </ul>
   </div>
 </div>
 

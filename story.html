@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Story – WNBA &amp; NBA Leaders</title>
+<title>⭐ Story – 🏀 WNBA &amp; NBA Leaders</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -75,9 +75,10 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -85,7 +86,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">WNBA &amp; NBA Leaders</span>
+    <span class="navbar-title">🏀 WNBA &amp; NBA Leaders</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -96,7 +97,23 @@ ul.task-list li input[type="checkbox"] {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+<span class="menu-text">🔍 Exploration</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./graphs.html"> 
+<span class="menu-text">📊 Graphs</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./project-overview.html"> 
+<span class="menu-text">📋 Project Overview</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./story.html" aria-current="page"> 
+<span class="menu-text">⭐ Story</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">ℹ️ About</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -106,21 +123,22 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Story</h1>
+<h1 class="title">⭐ Story</h1>
+<p class="subtitle lead">The Inspiration Behind the Project</p>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -132,22 +150,37 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="about" class="level2">
-<h2 class="anchored" data-anchor-id="about">About</h2>
-<p>As a basketball player and fan, I became interested in analyzing Women’s Basketball statistics. After comparing players across multiple seasons and researching reliable data sources, I discovered a positive correlation between minutes played and points, assists, steals, rebounds, and blocks. This inspired me to create a website using graphs and data to highlight player performance, celebrate their legacies, and showcase the growth of Women’s Basketball. I have also compared my data to Men’s Basketball to prove that women are just as capable as men.</p>
-</section>
-<section id="about-the-data" class="level2">
-<h2 class="anchored" data-anchor-id="about-the-data">About the Data</h2>
-<p>The datasets comprise <strong>12,013 individual player-game box scores</strong> from the 2025–2026 regular seasons: - <strong>WNBA Data:</strong> Sourced via SportsDataverse (<code>wehoop</code>). - <strong>NBA Data:</strong> Sourced from ESPN via SportsDataverse (<code>hoopR</code>).</p>
-<p>To ensure a balanced comparison across both leagues, each league’s sample contains 12,013 observations, with 2,000 performances plotted in each interactive visualization. The dashed trendlines represent linear regressions fitted across all 12,013 games.</p>
-</section>
-<section id="about-me" class="level2">
-<h2 class="anchored" data-anchor-id="about-me">About Me</h2>
-<p>My name is <strong>Shania Leubin</strong>, and I graduated from <em>Lemon Bay High School</em>.</p>
-<p><a href="https://bootcamp.davidkane.info">Kane’s Free Data Science Bootcamp</a></p>
+<div class="card shadow-sm border-0 mb-4" style="border-radius: 12px; background: linear-gradient(135deg, #ffffff 0%, #f9fbfd 100%);">
+  <div class="card-body p-4">
+    <div class="d-flex align-items-center mb-3">
+      <span style="font-size: 2.2rem; margin-right: 15px;">🏀</span>
+      <div>
+        <h4 class="fw-bold mb-0 anchored" style="color: #2c3e50;">Meet the Creator</h4>
+        <small class="text-muted">Shania Leubin · New College of Florida</small>
+      </div>
+    </div>
+    
+    <p class="lead" style="font-size: 1.1rem; color: #495057;">
+      My name is <strong>Shania Leubin</strong>. I graduated from Lemon Bay High School and now attend the New College of Florida. My area of concentration is Finance, while also studying pre-law!
+    </p>
+
+    <hr style="border-color: #e9ecef; margin: 1.5rem 0;">
+
+    <h4 class="fw-bold mb-3 anchored" style="color: #2c3e50;">Why I Chose This Project?! 🎯</h4>
+    
+    <p style="font-size: 1.05rem; line-height: 1.7; color: #495057;">
+      As a basketball player and fan, I became interested in analyzing Women’s Basketball statistics. After comparing players across multiple seasons and researching reliable data sources, I discovered a positive correlation between minutes played and points, assists, steals, rebounds, and blocks.
+    </p>
+    
+    <div class="p-3 my-3" style="background-color: #f1f8ff; border-left: 4px solid #1d70b8; border-radius: 6px;">
+      <em>
+        "This inspired me to create a website using graphs and data to highlight player performance, celebrate their legacies, and showcase the growth of Women’s Basketball. I have also compared my data to Men's Basketball to prove that women are just as capable as men."
+      </em>
+    </div>
+  </div>
+</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

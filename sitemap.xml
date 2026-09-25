@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ShaniaL08.github.io/wnba-nba-stats/WNBALeaders.html</loc>
-    <lastmod>2026-09-23T20:52:45.344Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ShaniaL08.github.io/wnba-nba-stats/story.html</loc>
-    <lastmod>2026-09-23T15:21:23.667Z</lastmod>
+    <loc>https://ShaniaL08.github.io/wnba-nba-stats/graphs.html</loc>
+    <lastmod>2026-09-25T15:45:49.491Z</lastmod>
   </url>
   <url>
     <loc>https://ShaniaL08.github.io/wnba-nba-stats/index.html</loc>
-    <lastmod>2026-09-23T20:52:40.354Z</lastmod>
+    <lastmod>2026-09-25T15:44:16.824Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ShaniaL08.github.io/wnba-nba-stats/project-overview.html</loc>
+    <lastmod>2026-09-25T15:44:48.932Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ShaniaL08.github.io/wnba-nba-stats/about.html</loc>
+    <lastmod>2026-09-25T15:45:42.154Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ShaniaL08.github.io/wnba-nba-stats/story.html</loc>
+    <lastmod>2026-09-25T15:44:31.055Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ShaniaL08.github.io/wnba-nba-stats/WNBALeaders.html</loc>
+    <lastmod>2026-09-23T20:52:45.344Z</lastmod>
   </url>
 </urlset>
