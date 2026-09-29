@@ -9,7 +9,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "🏀 Exploration & Welcome",
+    "title": "🏀 WNBA & NBA Leaders",
     "section": "",
     "text": "Welcome to WNBA & NBA Statistical Leaders! 🏀\n      \n        Discover how playing time shapes player production across both the \n        WNBA and NBA. \n        Explore interactive scatter plots, compare league trends, and see how box score metrics scale with minutes played.\n      \n      \n        📊 View Interactive Graphs\n        ⭐ Read the Story\n        📋 Project Overview\n      \n    \n    \n      🏀⚡\n    \n  \n\n\n\n\n  \n    \n      12,013\n      Game Performances Sampled\n    \n  \n  \n    \n      6\n      Statistical Categories Analyzed\n    \n  \n  \n    \n      2 Leagues\n      WNBA & NBA Compared Side-by-Side\n    \n  \n\n\n\n\n  \n    💡 How to Use the Interactive Visualizations\n    \n      Filter Categories: On the Graphs tab, use the dropdown menu to toggle between Points, Rebounds, Blocks, Assists, Steals, and Personal Fouls.\n      Hover for Details: Hover over any individual data point to view the player name, team, game date, minutes, and exact statistics.\n      Zoom & Pan: Click and drag across clusters of points to zoom in; double-click to reset the axes.\n      Trendlines: Dashed regression lines show the linear relationship fitted across the full dataset of 12,013 games."
   },
@@ -30,7 +30,7 @@
   {
     "objectID": "story.html",
     "href": "story.html",
-    "title": "⭐ Story",
+    "title": "⭐ My Inspiration",
     "section": "",
     "text": "🏀\n      \n        Meet the Creator\n        Shania Leubin · New College of Florida\n      \n    \n    \n    \n      My name is Shania Leubin. I graduated from Lemon Bay High School and now attend the New College of Florida. My area of concentration is Finance, while also studying pre-law!\n    \n\n    \n\n    Why I Chose This Project?! 🎯\n    \n    \n      As a basketball player and fan, I became interested in analyzing Women’s Basketball statistics. After comparing players across multiple seasons and researching reliable data sources, I discovered a positive correlation between minutes played and points, assists, steals, rebounds, and blocks.\n    \n    \n    \n      \n        \"This inspired me to create a website using graphs and data to highlight player performance, celebrate their legacies, and showcase the growth of Women’s Basketball. I have also compared my data to Men's Basketball to prove that women are just as capable as men.\""
   },
